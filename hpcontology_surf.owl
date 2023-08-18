@@ -1,0 +1,1181 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="https://example.org/hpcontology_surf.owl"
+         xmlns="https://example.org/hpcontology_surf.owl#">
+
+<owl:Ontology rdf:about="https://example.org/hpcontology_surf.owl"/>
+
+<owl:ObjectProperty rdf:about="#hasMember">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <owl:inverseOf rdf:resource="#memberOf"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#memberOf">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <owl:inverseOf rdf:resource="#member"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#member">
+  <owl:equivalentProperty rdf:resource="#hasMember"/>
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <owl:inverseOf rdf:resource="#memberOf"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#featureOfInterest">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="#Feature"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#manageJob">
+  <rdfs:domain rdf:resource="#Software"/>
+  <rdfs:range rdf:resource="#Job"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasMonitoringSystem">
+  <rdfs:domain rdf:resource="#Computer"/>
+  <rdfs:range rdf:resource="#MonitoringSystem"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasMetricsExporter">
+  <rdfs:domain rdf:resource="#Entity"/>
+  <rdfs:range rdf:resource="#MetricsExporter"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#exportMonitoringMetrics">
+  <rdfs:domain rdf:resource="#MetricsExporter"/>
+  <rdfs:range rdf:resource="#MonitoringMetrics"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#observedProperty">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="#Property"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#measuresValueOfThing">
+  <rdfs:domain rdf:resource="#MonitoringMetrics"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#atLocation">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasResourceManager">
+  <rdfs:domain rdf:resource="#Computer"/>
+  <rdfs:range rdf:resource="#ResourceManager"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasJobScheduler">
+  <rdfs:domain rdf:resource="#Computer"/>
+  <rdfs:range rdf:resource="#JobScheduler"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#managesJob">
+  <rdfs:domain rdf:resource="#JobScheduler"/>
+  <rdfs:range rdf:resource="#Job"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isScheduledOnServer">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="#Server"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isScheduledOn">
+  <rdfs:domain rdf:resource="#Data"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasExitCode">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="#ExitCode"/>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="#generatedAtTime">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasMeasurementIdentifier">
+  <rdfs:domain rdf:resource="#MonitoringMetrics"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasTemperatureValue">
+  <rdfs:domain rdf:resource="#Feature"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  <rdfs:domain rdf:resource="#Property"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasPowerUsageValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasUpValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasTimeSinceEpochValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasNumberOfProcessesBlockedValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasNumberOfProcessesRunningValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasActiveBytesValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasDirtyBytesValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasMemFreeBytesValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasPerCPUBytesValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasNumberOfIOsInProgressValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasTotalNumberOfWritesCompletedValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasTotalNumberOfReadBytesValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasTotalNumberOfWrittenBytesValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasNodeTemperatureValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasCPULoadAverageValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasArpEntriesValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasBootTimeValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasRAPLPackageValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasAllocatedMemoryForUDPDatagramsValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasTotalContextSwitchesValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasTotalForksValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasTotalInterruptsServicedValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasTotalFreeFileNodesValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasTotalFileNodesValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasTotalFreeSpaceValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasDeviceErrorValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasAvailableFileSystemSpaceToNonRootUsersValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasFileSystemSizeValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasFanSpeedValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasDutyCycleValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasMemoryUsedValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasReceiveBytesTotal">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasReceivePacketsTotal">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasReceiveMulticastPacketsTotal">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasReceiveDroppedPacketsTotal">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasTransmitBytesTotal">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasTransmitPacketsTotal">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasICMPInErrorsMessagesValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasICMPInMessagesValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasICMPOutMessagesValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasTCPInErrorsSegmentsValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasTCPInSegmentsValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasTCPOutSegmentsValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasTCPRetransmittedSegmentsValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasUDPInDatagramsValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasUDPOutDatagramsValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasUDPInErrorsDatagramsValue">
+  <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasJobIdentifier">
+  <rdfs:domain rdf:resource="#Job"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasStartDate">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasEndDate">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasNodeType">
+  <rdfs:domain rdf:resource="#Server"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#usesNode">
+  <rdfs:domain rdf:resource="#Job"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#usesCore">
+  <rdfs:domain rdf:resource="#Job"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#requiresSharedNode">
+  <rdfs:domain rdf:resource="#Job"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#submittedAtTime">
+  <rdfs:domain rdf:resource="#Job"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#startedAtTime">
+  <rdfs:domain rdf:resource="#Job"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#endedAtTime">
+  <rdfs:domain rdf:resource="#Job"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasState">
+  <rdfs:domain rdf:resource="#Job"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasExitCodeValue">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasReservationIdentifier">
+  <rdfs:domain rdf:resource="#Job"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#Hardware">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Computer">
+  <rdfs:subClassOf rdf:resource="#Hardware"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Cluster">
+  <rdfs:subClassOf rdf:resource="#Computer"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Rack">
+  <rdfs:subClassOf rdf:resource="#Hardware"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Server">
+  <rdfs:subClassOf rdf:resource="#Computer"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Processor">
+  <rdfs:subClassOf rdf:resource="#Hardware"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CPU">
+  <rdfs:subClassOf rdf:resource="#Processor"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Coprocessor">
+  <rdfs:subClassOf rdf:resource="#Processor"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Accelerator">
+  <rdfs:subClassOf rdf:resource="#Coprocessor"/>
+</owl:Class>
+
+<owl:Class rdf:about="#GPU">
+  <rdfs:subClassOf rdf:resource="#Accelerator"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Memory">
+  <rdfs:subClassOf rdf:resource="#Hardware"/>
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Concept">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Entity">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Site">
+  <rdfs:subClassOf rdf:resource="#Entity"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Artifact">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Data">
+  <rdfs:subClassOf rdf:resource="#Artifact"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Software">
+  <rdfs:subClassOf rdf:resource="#Entity"/>
+</owl:Class>
+
+<owl:Class rdf:about="#MonitoringSystem">
+  <rdfs:subClassOf rdf:resource="#Software"/>
+</owl:Class>
+
+<owl:Class rdf:about="#MetricsExporter">
+  <rdfs:subClassOf rdf:resource="#Software"/>
+</owl:Class>
+
+<owl:Class rdf:about="#MonitoringMetrics">
+  <rdfs:subClassOf rdf:resource="#Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ResourceManager">
+  <rdfs:subClassOf rdf:resource="#Software"/>
+</owl:Class>
+
+<owl:Class rdf:about="#JobScheduler">
+  <rdfs:subClassOf rdf:resource="#Software"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Job">
+  <rdfs:subClassOf rdf:resource="#Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Resource">
+  <rdfs:subClassOf rdf:resource="#Entity"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Feature">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Property">
+  <rdfs:subClassOf rdf:resource="#MonitoringMetrics"/>
+</owl:Class>
+
+<owl:Class rdf:about="#MetricCollector">
+  <rdfs:subClassOf rdf:resource="#Feature"/>
+</owl:Class>
+
+<owl:Class rdf:about="#DataCentre">
+  <rdfs:subClassOf rdf:resource="#Site"/>
+</owl:Class>
+
+<owl:Class rdf:about="#AmbientTemperature">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PowerUsage">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#DeviceStatus">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#TimeSinceEpoch">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Motherboard">
+  <rdfs:subClassOf rdf:resource="#Hardware"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ThermalZone">
+  <rdfs:subClassOf rdf:resource="#Feature"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Temperature">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#SystemStatisticsCollector">
+  <rdfs:subClassOf rdf:resource="#MetricCollector"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ProcessesBlocked">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ProcessesRunning">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#MemoryStatisticsCollector">
+  <rdfs:subClassOf rdf:resource="#MetricCollector"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ActiveBytes">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#DirtyBytes">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#MemFreeBytes">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PerCPUBytes">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#DiskIOStatisticsCollector">
+  <rdfs:subClassOf rdf:resource="#MetricCollector"/>
+</owl:Class>
+
+<owl:Class rdf:about="#NumberOfIOs">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#TotalWrites">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ReadBytes">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#WrittenBytes">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#HardwareMonitor">
+  <rdfs:subClassOf rdf:resource="#MetricCollector"/>
+</owl:Class>
+
+<owl:Class rdf:about="#NodeTemperature">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CPULoadCollector">
+  <rdfs:subClassOf rdf:resource="#MetricCollector"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CPULoadAverage">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ARPMetricCollector">
+  <rdfs:subClassOf rdf:resource="#MetricCollector"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ARPEntries">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#BootTimeMetricCollector">
+  <rdfs:subClassOf rdf:resource="#MetricCollector"/>
+</owl:Class>
+
+<owl:Class rdf:about="#BootTime">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#EnergyUsageMetricCollector">
+  <rdfs:subClassOf rdf:resource="#MetricCollector"/>
+</owl:Class>
+
+<owl:Class rdf:about="#RunningAveragePowerLimit">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#UDPQueuesCollector">
+  <rdfs:subClassOf rdf:resource="#MetricCollector"/>
+</owl:Class>
+
+<owl:Class rdf:about="#UDPQueues">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#VirtualMemoryStatisticsCollector">
+  <rdfs:subClassOf rdf:resource="#MetricCollector"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ContextSwitches">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Forks">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Interrupts">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#FileSystemMetricCollector">
+  <rdfs:subClassOf rdf:resource="#MetricCollector"/>
+</owl:Class>
+
+<owl:Class rdf:about="#FilesFree">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Files">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#FreeSpace">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#DeviceErrorReport">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#FileSystemSpace">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#FileSystemSize">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#GPUDevice">
+  <rdfs:subClassOf rdf:resource="#Feature"/>
+</owl:Class>
+
+<owl:Class rdf:about="#FanSpeed">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#DutyCycle">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#NetworkInterface">
+  <rdfs:subClassOf rdf:resource="#Feature"/>
+</owl:Class>
+
+<owl:Class rdf:about="#NetworkInterfaceMetrics">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#KernelNetworkSubsystem">
+  <rdfs:subClassOf rdf:resource="#Feature"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ICMPMetrics">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#TCPMetrics">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#UDPMetrics">
+  <rdfs:subClassOf rdf:resource="#Property"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ExitCode">
+  <rdfs:subClassOf rdf:resource="#Data"/>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil">
+  <rdf:type rdf:resource="#Server"/>
+  <atLocation rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  <hasNodeType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">normal(1)</hasNodeType>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://www.w3.org/2002/07/owl#NamedIndividual">
+  <rdf:type rdf:resource="#Rack"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://www.w3.org/2002/07/owl#ObjectProperty">
+  <rdf:type rdf:resource="#Rack"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://www.w3.org/2002/07/owl#onDataRange">
+  <rdf:type rdf:resource="#Server"/>
+  <atLocation rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <observedProperty rdf:resource="#devicestatus2"/>
+  <observedProperty rdf:resource="#timesinceepoch2"/>
+  <hasMember rdf:resource="#motherboard2"/>
+  <hasMember rdf:resource="#gpu2"/>
+  <featureOfInterest rdf:resource="#networkinterface2"/>
+  <featureOfInterest rdf:resource="#kernelnetworksubsystem2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#cluster2">
+  <rdf:type rdf:resource="#Cluster"/>
+  <hasMonitoringSystem rdf:resource="#monitoringsystem2"/>
+  <hasResourceManager rdf:resource="#resourcemanager2"/>
+  <hasJobScheduler rdf:resource="#jobscheduler2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#monitoringsystem2">
+  <rdf:type rdf:resource="#MonitoringSystem"/>
+  <hasMetricsExporter rdf:resource="#metricsexporter2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#metricsexporter2">
+  <rdf:type rdf:resource="#MetricsExporter"/>
+  <exportMonitoringMetrics rdf:resource="#monitoringmetrics2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#monitoringmetrics2">
+  <rdf:type rdf:resource="#MonitoringMetrics"/>
+  <measuresValueOfThing rdf:resource="#datacentre2"/>
+  <measuresValueOfThing rdf:resource="http://www.w3.org/2002/07/owl#onDataRange"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Timestamp of the event/measurement (every 30 seconds)</rdfs:comment>
+  <generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-08-01T23:00:30.000</generatedAtTime>
+  <hasMeasurementIdentifier rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">23499351</hasMeasurementIdentifier>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#datacentre2">
+  <rdf:type rdf:resource="#DataCentre"/>
+  <observedProperty rdf:resource="#ambienttemperature2"/>
+  <observedProperty rdf:resource="#powerusage3"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#ambienttemperature2">
+  <rdf:type rdf:resource="#AmbientTemperature"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Temperature of the datacentre</rdfs:comment>
+  <hasTemperatureValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24.0</hasTemperatureValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#powerusage3">
+  <rdf:type rdf:resource="#PowerUsage"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Power usage for the datacentre</rdfs:comment>
+  <hasPowerUsageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">180.0</hasPowerUsageValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#devicestatus2">
+  <rdf:type rdf:resource="#DeviceStatus"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Shows whether the node is up or not</rdfs:comment>
+  <hasUpValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</hasUpValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#timesinceepoch2">
+  <rdf:type rdf:resource="#TimeSinceEpoch"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Parsed from system time in seconds since epoch (1970)</rdfs:comment>
+  <hasTimeSinceEpochValue rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-08-01T23:40:00.000</hasTimeSinceEpochValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#motherboard2">
+  <rdf:type rdf:resource="#Motherboard"/>
+  <featureOfInterest rdf:resource="#thermalzone2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#temperature3">
+  <rdf:type rdf:resource="#Temperature"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The (mean) thermal zone temperature of the node; also aggregated as max and min (which are not represented in the ontology for brevity)</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Measured in Celsius</rdfs:label>
+  <hasTemperatureValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">46.0</hasTemperatureValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#thermalzone2">
+  <rdf:type rdf:resource="#ThermalZone"/>
+  <observedProperty rdf:resource="#temperature3"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#systemstatisticscollector2">
+  <rdf:type rdf:resource="#SystemStatisticsCollector"/>
+  <observedProperty rdf:resource="#processesblocked2"/>
+  <observedProperty rdf:resource="#processesrunning2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#processesblocked2">
+  <rdf:type rdf:resource="#ProcessesBlocked"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Number of processes blocked waiting for I/O to complete</rdfs:comment>
+  <hasNumberOfProcessesBlockedValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</hasNumberOfProcessesBlockedValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#processesrunning2">
+  <rdf:type rdf:resource="#ProcessesRunning"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Number of processes in runnable state</rdfs:comment>
+  <hasNumberOfProcessesRunningValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">17.0</hasNumberOfProcessesRunningValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#memorystatisticscollector2">
+  <rdf:type rdf:resource="#MemoryStatisticsCollector"/>
+  <observedProperty rdf:resource="#activebytes2"/>
+  <observedProperty rdf:resource="#dirtybytes2"/>
+  <observedProperty rdf:resource="#memfreebytes2"/>
+  <observedProperty rdf:resource="#percpubytes2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#activebytes2">
+  <rdf:type rdf:resource="#ActiveBytes"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Memory information field Active_bytes</rdfs:comment>
+  <hasActiveBytesValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4585050000.0</hasActiveBytesValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#dirtybytes2">
+  <rdf:type rdf:resource="#DirtyBytes"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Memory information field Dirty_bytes (Contains the amount of dirty memory at which a process generating disk writes will itself start writeback)</rdfs:comment>
+  <hasDirtyBytesValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8192.0</hasDirtyBytesValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#memfreebytes2">
+  <rdf:type rdf:resource="#MemFreeBytes"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Memory information field MemFree_bytes</rdfs:comment>
+  <hasMemFreeBytesValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">92157400000.0</hasMemFreeBytesValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#percpubytes2">
+  <rdf:type rdf:resource="#PerCPUBytes"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Memory information field Percpu_bytes</rdfs:comment>
+  <hasPerCPUBytesValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">17367000.0</hasPerCPUBytesValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#diskiostatisticscollector2">
+  <rdf:type rdf:resource="#DiskIOStatisticsCollector"/>
+  <observedProperty rdf:resource="#numberofios2"/>
+  <observedProperty rdf:resource="#totalwrites2"/>
+  <observedProperty rdf:resource="#readbytes2"/>
+  <observedProperty rdf:resource="#writtenbytes2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#numberofios2">
+  <rdf:type rdf:resource="#NumberOfIOs"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The number of I/Os currently in progress (sum)</rdfs:comment>
+  <hasNumberOfIOsInProgressValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</hasNumberOfIOsInProgressValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#totalwrites2">
+  <rdf:type rdf:resource="#TotalWrites"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The total number of writes completed successfully (sum)</rdfs:comment>
+  <hasTotalNumberOfWritesCompletedValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4342622.0</hasTotalNumberOfWritesCompletedValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#readbytes2">
+  <rdf:type rdf:resource="#ReadBytes"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The total number of bytes read successfully (sum)</rdfs:comment>
+  <hasTotalNumberOfReadBytesValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1967811584.0</hasTotalNumberOfReadBytesValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#writtenbytes2">
+  <rdf:type rdf:resource="#WrittenBytes"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The total number of bytes written successfully (sum)</rdfs:comment>
+  <hasTotalNumberOfWrittenBytesValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1120293241856.0</hasTotalNumberOfWrittenBytesValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#hardwaremonitor2">
+  <rdf:type rdf:resource="#HardwareMonitor"/>
+  <observedProperty rdf:resource="#nodetemperature2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#nodetemperature2">
+  <rdf:type rdf:resource="#NodeTemperature"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Temperature of the node (mean); also aggregated as max and min (which are not represented in the ontology for brevity)</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Measured in Celsius</rdfs:label>
+  <hasNodeTemperatureValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">40.12</hasNodeTemperatureValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#cpuloadcollector2">
+  <rdf:type rdf:resource="#CPULoadCollector"/>
+  <observedProperty rdf:resource="#cpuloadaverage2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#cpuloadaverage2">
+  <rdf:type rdf:resource="#CPULoadAverage"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1m load average; also aggregated at 5m and 15m (which are not represented in the ontology for brevity)</rdfs:comment>
+  <hasCPULoadAverageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.4</hasCPULoadAverageValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arpmetriccollector2">
+  <rdf:type rdf:resource="#ARPMetricCollector"/>
+  <observedProperty rdf:resource="#arpentries2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arpentries2">
+  <rdf:type rdf:resource="#ARPEntries"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ARP entries by device (sum)</rdfs:comment>
+  <hasArpEntriesValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">224.0</hasArpEntriesValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#boottimemetriccollector2">
+  <rdf:type rdf:resource="#BootTimeMetricCollector"/>
+  <observedProperty rdf:resource="#boottime2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#boottime2">
+  <rdf:type rdf:resource="#BootTime"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Node boot time, in unixtime</rdfs:comment>
+  <hasBootTimeValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1657360000.0</hasBootTimeValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#energyusagemetriccollector2">
+  <rdf:type rdf:resource="#EnergyUsageMetricCollector"/>
+  <observedProperty rdf:resource="#runningaveragepowerlimit2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#runningaveragepowerlimit2">
+  <rdf:type rdf:resource="#RunningAveragePowerLimit"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Current RAPL (Running Average Power Limit) package value in joules (sum)</rdfs:comment>
+  <hasRAPLPackageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">95773.3</hasRAPLPackageValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#udpqueuescollector2">
+  <rdf:type rdf:resource="#UDPQueuesCollector"/>
+  <observedProperty rdf:resource="#udpqueues2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#udpqueues2">
+  <rdf:type rdf:resource="#UDPQueues"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Number of allocated memory in the kernel for UDP datagrams in bytes (sum)</rdfs:comment>
+  <hasAllocatedMemoryForUDPDatagramsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</hasAllocatedMemoryForUDPDatagramsValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#virtualmemorystatisticscollector2">
+  <rdf:type rdf:resource="#VirtualMemoryStatisticsCollector"/>
+  <observedProperty rdf:resource="#contextswitches2"/>
+  <observedProperty rdf:resource="#forks2"/>
+  <observedProperty rdf:resource="#interrupts2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#contextswitches2">
+  <rdf:type rdf:resource="#ContextSwitches"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Total number of context switches</rdfs:comment>
+  <hasNodeTemperatureValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">23584300000.0</hasNodeTemperatureValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#forks2">
+  <rdf:type rdf:resource="#Forks"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Total number of forks</rdfs:comment>
+  <hasTotalForksValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8026790.0</hasTotalForksValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#interrupts2">
+  <rdf:type rdf:resource="#Interrupts"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Total number of interrupts serviced</rdfs:comment>
+  <hasTotalInterruptsServicedValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">13517900000.0</hasTotalInterruptsServicedValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#filesystemmetriccollector2">
+  <rdf:type rdf:resource="#FileSystemMetricCollector"/>
+  <observedProperty rdf:resource="#filesfree2"/>
+  <observedProperty rdf:resource="#files2"/>
+  <observedProperty rdf:resource="#freespace2"/>
+  <observedProperty rdf:resource="#deviceerrorreport2"/>
+  <observedProperty rdf:resource="#filesystemspace2"/>
+  <observedProperty rdf:resource="#filesystemsize2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#filesfree2">
+  <rdf:type rdf:resource="#FilesFree"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Filesystem total free file nodes (sum)</rdfs:comment>
+  <hasTotalFreeFileNodesValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">230052690.0</hasTotalFreeFileNodesValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#files2">
+  <rdf:type rdf:resource="#Files"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Filesystem total file nodes (sum)</rdfs:comment>
+  <hasTotalFileNodesValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">230697006.0</hasTotalFileNodesValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#freespace2">
+  <rdf:type rdf:resource="#FreeSpace"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Filesystem free space in bytes (sum)</rdfs:comment>
+  <hasTotalFreeSpaceValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1881050927104.0</hasTotalFreeSpaceValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#deviceerrorreport2">
+  <rdf:type rdf:resource="#DeviceErrorReport"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Whether an error occurred while getting statistics for the given device (sum)</rdfs:comment>
+  <hasDeviceErrorValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</hasDeviceErrorValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#filesystemspace2">
+  <rdf:type rdf:resource="#FileSystemSpace"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Filesystem space available to non-root users in bytes (sum)</rdfs:comment>
+  <hasAvailableFileSystemSpaceToNonRootUsersValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1880997240832.0</hasAvailableFileSystemSpaceToNonRootUsersValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#filesystemsize2">
+  <rdf:type rdf:resource="#FileSystemSize"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Filesystem size in bytes (sum)</rdfs:comment>
+  <hasFileSystemSizeValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1912248332288.0</hasFileSystemSizeValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#gpu2">
+  <rdf:type rdf:resource="#GPU"/>
+  <featureOfInterest rdf:resource="#gpudevice2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#gpudevice2">
+  <rdf:type rdf:resource="#GPUDevice"/>
+  <observedProperty rdf:resource="#fanspeed2"/>
+  <observedProperty rdf:resource="#temperature4"/>
+  <observedProperty rdf:resource="#powerusage4"/>
+  <observedProperty rdf:resource="#dutycycle2"/>
+  <observedProperty rdf:resource="#memory2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#fanspeed2">
+  <rdf:type rdf:resource="#FanSpeed"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fanspeed of the GPU device as a percent of its maximum (mean); also aggregated as max and min (which are not represented in the ontology for brevity)</rdfs:comment>
+  <hasFanSpeedValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">None</hasFanSpeedValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#temperature4">
+  <rdf:type rdf:resource="#Temperature"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Temperature of the GPU device in Celsius (mean); also aggregated as max and min (which are not represented in the ontology for brevity)</rdfs:comment>
+  <hasTemperatureValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">None</hasTemperatureValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#powerusage4">
+  <rdf:type rdf:resource="#PowerUsage"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Power usage of the GPU device in milliwatts (mean); also aggregated as sum, max and min (which are not represented in the ontology for brevity)</rdfs:comment>
+  <hasPowerUsageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">None</hasPowerUsageValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#dutycycle2">
+  <rdf:type rdf:resource="#DutyCycle"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Percent of time over the past sample period during which one or more kernels were executing on the GPU device (mean); also aggregated as max and min (which are not represented in the ontology for brevity)</rdfs:comment>
+  <hasDutyCycleValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">None</hasDutyCycleValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#memory2">
+  <rdf:type rdf:resource="#Memory"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Memory used by the GPU device in bytes (sum)</rdfs:comment>
+  <hasMemoryUsedValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</hasMemoryUsedValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#networkinterface2">
+  <rdf:type rdf:resource="#NetworkInterface"/>
+  <observedProperty rdf:resource="#networkinterfacemetrics2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#networkinterfacemetrics2">
+  <rdf:type rdf:resource="#NetworkInterfaceMetrics"/>
+  <hasReceiveBytesTotal rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">39044843376948.0</hasReceiveBytesTotal>
+  <hasReceivePacketsTotal rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8240601042.0</hasReceivePacketsTotal>
+  <hasReceiveMulticastPacketsTotal rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</hasReceiveMulticastPacketsTotal>
+  <hasReceiveDroppedPacketsTotal rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</hasReceiveDroppedPacketsTotal>
+  <hasTransmitBytesTotal rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">38731123847906.0</hasTransmitBytesTotal>
+  <hasTransmitPacketsTotal rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8304228495.0</hasTransmitPacketsTotal>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#kernelnetworksubsystem2">
+  <rdf:type rdf:resource="#KernelNetworkSubsystem"/>
+  <observedProperty rdf:resource="#icmpmetrics2"/>
+  <observedProperty rdf:resource="#tcpmetrics2"/>
+  <observedProperty rdf:resource="#udpmetrics2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#icmpmetrics2">
+  <rdf:type rdf:resource="#ICMPMetrics"/>
+  <hasICMPInErrorsMessagesValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.0</hasICMPInErrorsMessagesValue>
+  <hasICMPInMessagesValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">63.0</hasICMPInMessagesValue>
+  <hasICMPOutMessagesValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">60.0</hasICMPOutMessagesValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#tcpmetrics2">
+  <rdf:type rdf:resource="#TCPMetrics"/>
+  <hasTCPInErrorsSegmentsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</hasTCPInErrorsSegmentsValue>
+  <hasTCPInSegmentsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">7406570000.0</hasTCPInSegmentsValue>
+  <hasTCPOutSegmentsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8229440000.0</hasTCPOutSegmentsValue>
+  <hasTCPRetransmittedSegmentsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">74460000.0</hasTCPRetransmittedSegmentsValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#udpmetrics2">
+  <rdf:type rdf:resource="#UDPMetrics"/>
+  <hasUDPInDatagramsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">53306.0</hasUDPInDatagramsValue>
+  <hasUDPOutDatagramsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">119676.0</hasUDPOutDatagramsValue>
+  <hasUDPInErrorsDatagramsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</hasUDPInErrorsDatagramsValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#resourcemanager2">
+  <rdf:type rdf:resource="#ResourceManager"/>
+  <hasMember rdf:resource="#jobscheduler2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#jobscheduler2">
+  <rdf:type rdf:resource="#JobScheduler"/>
+  <managesJob rdf:resource="#job2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#job2">
+  <rdf:type rdf:resource="#Job"/>
+  <isScheduledOn rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  <hasExitCode rdf:resource="#exitcode2"/>
+  <hasJobIdentifier rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasJobIdentifier>
+  <hasStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-12-26T22:06:31.000</hasStartDate>
+  <hasEndDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-12-31T22:06:50.000</hasEndDate>
+  <usesNode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</usesNode>
+  <usesCore rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</usesCore>
+  <requiresSharedNode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0</requiresSharedNode>
+  <submittedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-12-26T18:11:18.000</submittedAtTime>
+  <startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-12-27T00:06:31.000</startedAtTime>
+  <endedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-01-01T00:06:50.000</endedAtTime>
+  <hasState rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TIMEOUT</hasState>
+  <hasExitCodeValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0:0</hasExitCodeValue>
+  <hasReservationIdentifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></hasReservationIdentifier>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#exitcode2">
+  <rdf:type rdf:resource="#ExitCode"/>
+</owl:NamedIndividual>
+
+
+</rdf:RDF>
