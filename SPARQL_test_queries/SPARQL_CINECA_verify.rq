@@ -1,0 +1,28 @@
+# Query to verify that subjects, predicate and object relationships are returned (limit to only 100 results)
+select * where {
+	?s ?p ?o .
+} limit 100
+
+# Query to verify the subclasses of Property (as defined in the CINECA dataset's ontology modelling)
+PREFIX hpc: <https://example.org/hpcontology_cineca.owl#>
+SELECT DISTINCT ?x where{
+    ?x rdfs:subClassOf* hpc:Property .
+}
+
+# Query to verify the subclasses of Feature (as defined in the CINECA dataset's ontology modelling)
+PREFIX hpc: <https://example.org/hpcontology_cineca.owl#>
+SELECT DISTINCT ?x where{
+    ?x rdfs:subClassOf* hpc:Feature .
+}
+
+# Query to obtain a sample current-value (as defined in the CINECA dataset's ontology modelling)
+PREFIX hpc: <https://example.org/hpcontology_cineca.owl#>
+SELECT ?x where{
+    ?object hpc:hasCurrentValue ?x .
+}
+
+# Query to verify the features-of-interest (as defined in the CINECA dataset's ontology modelling)
+PREFIX hpc: <https://example.org/hpcontology_cineca.owl#>
+SELECT * where{
+    ?object hpc:featureOfInterest ?x .
+}

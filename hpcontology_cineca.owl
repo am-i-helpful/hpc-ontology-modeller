@@ -9,8 +9,8 @@
 <owl:Ontology rdf:about="https://example.org/hpcontology_cineca.owl"/>
 
 <owl:ObjectProperty rdf:about="#hasMember">
-  <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <rdfs:domain rdf:resource="#Computer"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <owl:inverseOf rdf:resource="#memberOf"/>
 </owl:ObjectProperty>
 
@@ -21,9 +21,9 @@
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#member">
-  <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-  <rdfs:domain rdf:resource="#Computer"/>
   <owl:equivalentProperty rdf:resource="#hasMember"/>
+  <rdfs:domain rdf:resource="#Computer"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <owl:inverseOf rdf:resource="#memberOf"/>
 </owl:ObjectProperty>
 
@@ -33,14 +33,14 @@
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#isInfluencedBy">
-  <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <rdfs:domain rdf:resource="#Organization"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#isAssociatedWith">
-  <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-  <rdfs:domain rdf:resource="#Organization"/>
   <rdfs:subPropertyOf rdf:resource="#isInfluencedBy"/>
+  <rdfs:domain rdf:resource="#Organization"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#observedProperty">
@@ -54,13 +54,13 @@
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#hasMonitoringMetrics">
-  <rdfs:range rdf:resource="#Data"/>
   <rdfs:domain rdf:resource="#Entity"/>
+  <rdfs:range rdf:resource="#Data"/>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#measuresValueOfThing">
-  <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <rdfs:domain rdf:resource="#MonitoringMetrics"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:ObjectProperty>
 
 <owl:DatatypeProperty rdf:about="#generatedAtTime">
@@ -69,43 +69,71 @@
 </owl:DatatypeProperty>
 
 <owl:DatatypeProperty rdf:about="#hasTemperatureValue">
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
   <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
 </owl:DatatypeProperty>
 
 <owl:DatatypeProperty rdf:about="#hasSpeedValue">
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
   <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
 </owl:DatatypeProperty>
 
 <owl:DatatypeProperty rdf:about="#hasPowerValue">
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
   <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
 </owl:DatatypeProperty>
 
 <owl:DatatypeProperty rdf:about="#hasValue">
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
   <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
 </owl:DatatypeProperty>
 
 <owl:DatatypeProperty rdf:about="#hasVoltageValue">
+  <rdfs:domain rdf:resource="#Property"/>
   <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
   <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-  <rdfs:domain rdf:resource="#Property"/>
 </owl:DatatypeProperty>
 
 <owl:DatatypeProperty rdf:about="#hasCurrentValue">
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
   <rdfs:domain rdf:resource="#Property"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
 </owl:DatatypeProperty>
-
-<owl:Class rdf:about="#Hardware">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
 
 <owl:Class rdf:about="#Computer">
   <rdfs:subClassOf rdf:resource="#Hardware"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Feature">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Organization">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Property">
+  <rdfs:subClassOf rdf:resource="#MonitoringMetrics"/>
+</owl:Class>
+
+<owl:Class rdf:about="#MonitoringSystem">
+  <rdfs:subClassOf rdf:resource="#Software"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Data">
+  <rdfs:subClassOf rdf:resource="#Artifact"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Entity">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+</owl:Class>
+
+<owl:Class rdf:about="#MonitoringMetrics">
+  <rdfs:subClassOf rdf:resource="#Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Hardware">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
 <owl:Class rdf:about="#Cluster">
@@ -144,36 +172,12 @@
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Data">
-  <rdfs:subClassOf rdf:resource="#Artifact"/>
-</owl:Class>
-
 <owl:Class rdf:about="#Concept">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Entity">
-  <rdfs:subClassOf rdf:resource="#Concept"/>
-</owl:Class>
-
 <owl:Class rdf:about="#Software">
   <rdfs:subClassOf rdf:resource="#Entity"/>
-</owl:Class>
-
-<owl:Class rdf:about="#MonitoringSystem">
-  <rdfs:subClassOf rdf:resource="#Software"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Feature">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
-<owl:Class rdf:about="#MonitoringMetrics">
-  <rdfs:subClassOf rdf:resource="#Data"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Property">
-  <rdfs:subClassOf rdf:resource="#MonitoringMetrics"/>
 </owl:Class>
 
 <owl:Class rdf:about="#IPMIProperty">
@@ -204,22 +208,18 @@
   <rdfs:subClassOf rdf:resource="#IPMIProperty"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Organization">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
 <owl:Class rdf:about="#Company">
   <rdfs:subClassOf rdf:resource="#Organization"/>
 </owl:Class>
 
 <owl:Class rdf:about="#NVIDIA">
+  <rdfs:subClassOf rdf:resource="#Company"/>
   <rdfs:subClassOf>
     <owl:Restriction>
-      <owl:someValuesFrom rdf:resource="#NVIDIAQuadroGV100Card"/>
       <owl:onProperty rdf:resource="#isAssociatedWith"/>
+      <owl:someValuesFrom rdf:resource="#NVIDIAQuadroGV100Card"/>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <rdfs:subClassOf rdf:resource="#Company"/>
 </owl:Class>
 
 <owl:Class rdf:about="#ServerInlet">
@@ -287,121 +287,42 @@
 </owl:Class>
 
 <owl:NamedIndividual rdf:about="http://www.lesfleursdunormal.fr/static/_downloads/owlready_ontology.owl#python_module">
+  <rdf:type rdf:resource="#Server"/>
   <featureOfInterest>
     <CPUSocket>
-      <observedProperty>
+      <featureOfInterest>
         <CPUSocketCore>
-          <observedProperty rdf:resource="#temperature5"/>
+          <observedProperty rdf:resource="#temperature12"/>
         </CPUSocketCore>
-      </observedProperty>
+      </featureOfInterest>
     </CPUSocket>
   </featureOfInterest>
-  <rdf:type rdf:resource="#Server"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#cluster1">
+<owl:NamedIndividual rdf:about="#cluster2">
   <rdf:type rdf:resource="#Cluster"/>
-  <hasMonitoringSystem rdf:resource="#monitoringsystem1"/>
+  <hasMonitoringSystem rdf:resource="#monitoringsystem2"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#monitoringsystem1">
+<owl:NamedIndividual rdf:about="#monitoringsystem2">
   <rdf:type rdf:resource="#MonitoringSystem"/>
-  <hasMonitoringMetrics rdf:resource="#monitoringmetrics1"/>
+  <hasMonitoringMetrics rdf:resource="#monitoringmetrics2"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#monitoringmetrics1">
+<owl:NamedIndividual rdf:about="#monitoringmetrics2">
+  <rdf:type rdf:resource="#MonitoringMetrics"/>
   <measuresValueOfThing>
     <Server>
-      <observedProperty rdf:resource="#power6"/>
+      <featureOfInterest rdf:resource="#serverinlet2"/>
     </Server>
   </measuresValueOfThing>
   <measuresValueOfThing>
     <Server>
       <featureOfInterest>
-        <PowerSupplyOutput>
-          <observedProperty rdf:resource="#voltage2"/>
-        </PowerSupplyOutput>
+        <DualInlineMemoryModule>
+          <observedProperty rdf:resource="#temperature9"/>
+        </DualInlineMemoryModule>
       </featureOfInterest>
-    </Server>
-  </measuresValueOfThing>
-  <measuresValueOfThing>
-    <Server>
-      <featureOfInterest>
-        <PowerSupplyOutput>
-          <observedProperty rdf:resource="#current1"/>
-        </PowerSupplyOutput>
-      </featureOfInterest>
-    </Server>
-  </measuresValueOfThing>
-  <measuresValueOfThing>
-    <Server>
-      <featureOfInterest>
-        <PowerSupplyInput>
-          <observedProperty rdf:resource="#voltage1"/>
-        </PowerSupplyInput>
-      </featureOfInterest>
-    </Server>
-  </measuresValueOfThing>
-  <measuresValueOfThing>
-    <Server>
-      <featureOfInterest>
-        <PowerSupplyInput>
-          <observedProperty rdf:resource="#power5"/>
-        </PowerSupplyInput>
-      </featureOfInterest>
-    </Server>
-  </measuresValueOfThing>
-  <measuresValueOfThing>
-    <Server>
-      <featureOfInterest rdf:resource="#pciexpressslot1"/>
-    </Server>
-  </measuresValueOfThing>
-  <measuresValueOfThing>
-    <Server>
-      <featureOfInterest rdf:resource="#cpusocket4"/>
-    </Server>
-  </measuresValueOfThing>
-  <measuresValueOfThing>
-    <Server>
-      <featureOfInterest rdf:resource="#cpusocket3"/>
-    </Server>
-  </measuresValueOfThing>
-  <measuresValueOfThing>
-    <Server>
-      <featureOfInterest rdf:resource="#cpusocket2"/>
-    </Server>
-  </measuresValueOfThing>
-  <measuresValueOfThing>
-    <Server>
-      <featureOfInterest rdf:resource="#cpusocket1"/>
-    </Server>
-  </measuresValueOfThing>
-  <measuresValueOfThing>
-    <Server>
-      <featureOfInterest rdf:resource="#graphicscard1"/>
-    </Server>
-  </measuresValueOfThing>
-  <measuresValueOfThing>
-    <Server>
-      <featureOfInterest>
-        <GPU>
-          <featureOfInterest rdf:resource="#gpumemory1"/>
-        </GPU>
-      </featureOfInterest>
-    </Server>
-  </measuresValueOfThing>
-  <measuresValueOfThing>
-    <Server>
-      <featureOfInterest>
-        <GPU>
-          <featureOfInterest rdf:resource="#gpucore1"/>
-        </GPU>
-      </featureOfInterest>
-    </Server>
-  </measuresValueOfThing>
-  <measuresValueOfThing>
-    <Server>
-      <featureOfInterest rdf:resource="#diskfan1"/>
     </Server>
   </measuresValueOfThing>
   <measuresValueOfThing>
@@ -410,7 +331,7 @@
         <DriveShelfFanModule>
           <featureOfInterest>
             <Fan>
-              <observedProperty rdf:resource="#speed1"/>
+              <observedProperty rdf:resource="#speed2"/>
             </Fan>
           </featureOfInterest>
         </DriveShelfFanModule>
@@ -419,28 +340,107 @@
   </measuresValueOfThing>
   <measuresValueOfThing>
     <Server>
+      <featureOfInterest rdf:resource="#diskfan2"/>
+    </Server>
+  </measuresValueOfThing>
+  <measuresValueOfThing>
+    <Server>
       <featureOfInterest>
-        <DualInlineMemoryModule>
-          <observedProperty rdf:resource="#temperature2"/>
-        </DualInlineMemoryModule>
+        <GPU>
+          <featureOfInterest rdf:resource="#gpucore2"/>
+        </GPU>
       </featureOfInterest>
     </Server>
   </measuresValueOfThing>
   <measuresValueOfThing>
     <Server>
-      <featureOfInterest rdf:resource="#serverinlet1"/>
+      <featureOfInterest>
+        <GPU>
+          <featureOfInterest rdf:resource="#gpumemory2"/>
+        </GPU>
+      </featureOfInterest>
+    </Server>
+  </measuresValueOfThing>
+  <measuresValueOfThing>
+    <Server>
+      <featureOfInterest rdf:resource="#graphicscard2"/>
     </Server>
   </measuresValueOfThing>
   <measuresValueOfThing rdf:resource="http://www.lesfleursdunormal.fr/static/_downloads/owlready_ontology.owl#python_module"/>
-  <rdf:type rdf:resource="#MonitoringMetrics"/>
+  <measuresValueOfThing>
+    <Server>
+      <featureOfInterest rdf:resource="#cpusocket5"/>
+    </Server>
+  </measuresValueOfThing>
+  <measuresValueOfThing>
+    <Server>
+      <featureOfInterest rdf:resource="#cpusocket6"/>
+    </Server>
+  </measuresValueOfThing>
+  <measuresValueOfThing>
+    <Server>
+      <featureOfInterest rdf:resource="#cpusocket7"/>
+    </Server>
+  </measuresValueOfThing>
+  <measuresValueOfThing>
+    <Server>
+      <featureOfInterest rdf:resource="#cpusocket8"/>
+    </Server>
+  </measuresValueOfThing>
+  <measuresValueOfThing>
+    <Server>
+      <featureOfInterest rdf:resource="#pciexpressslot2"/>
+    </Server>
+  </measuresValueOfThing>
+  <measuresValueOfThing>
+    <Server>
+      <featureOfInterest>
+        <PowerSupplyInput>
+          <observedProperty rdf:resource="#power11"/>
+        </PowerSupplyInput>
+      </featureOfInterest>
+    </Server>
+  </measuresValueOfThing>
+  <measuresValueOfThing>
+    <Server>
+      <featureOfInterest>
+        <PowerSupplyInput>
+          <observedProperty rdf:resource="#voltage3"/>
+        </PowerSupplyInput>
+      </featureOfInterest>
+    </Server>
+  </measuresValueOfThing>
+  <measuresValueOfThing>
+    <Server>
+      <featureOfInterest>
+        <PowerSupplyOutput>
+          <observedProperty rdf:resource="#current2"/>
+        </PowerSupplyOutput>
+      </featureOfInterest>
+    </Server>
+  </measuresValueOfThing>
+  <measuresValueOfThing>
+    <Server>
+      <featureOfInterest>
+        <PowerSupplyOutput>
+          <observedProperty rdf:resource="#voltage4"/>
+        </PowerSupplyOutput>
+      </featureOfInterest>
+    </Server>
+  </measuresValueOfThing>
+  <measuresValueOfThing>
+    <Server>
+      <observedProperty rdf:resource="#power12"/>
+    </Server>
+  </measuresValueOfThing>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#serverinlet1">
+<owl:NamedIndividual rdf:about="#serverinlet2">
   <rdf:type rdf:resource="#ServerInlet"/>
-  <observedProperty rdf:resource="#temperature1"/>
+  <observedProperty rdf:resource="#temperature8"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#temperature1">
+<owl:NamedIndividual rdf:about="#temperature8">
   <rdf:type rdf:resource="#Temperature"/>
   <hasTemperatureValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">21.600000381469727</hasTemperatureValue>
   <generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-04-03T22:55:20.000+00:00</generatedAtTime>
@@ -448,7 +448,7 @@
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sampled every 20s (per node)</rdfs:comment>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#temperature2">
+<owl:NamedIndividual rdf:about="#temperature9">
   <rdf:type rdf:resource="#Temperature"/>
   <hasTemperatureValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</hasTemperatureValue>
   <generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-04-03T22:16:00.000+00:00</generatedAtTime>
@@ -456,7 +456,7 @@
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sampled every 20s (per node)</rdfs:comment>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#speed1">
+<owl:NamedIndividual rdf:about="#speed2">
   <rdf:type rdf:resource="#Speed"/>
   <hasSpeedValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9900</hasSpeedValue>
   <generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-04-04T15:34:00.000+00:00</generatedAtTime>
@@ -464,12 +464,12 @@
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sampled every 20s (per node)</rdfs:comment>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#diskfan1">
+<owl:NamedIndividual rdf:about="#diskfan2">
   <rdf:type rdf:resource="#DiskFan"/>
-  <observedProperty rdf:resource="#power1"/>
+  <observedProperty rdf:resource="#power7"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#power1">
+<owl:NamedIndividual rdf:about="#power7">
   <rdf:type rdf:resource="#Power"/>
   <hasPowerValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</hasPowerValue>
   <generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-04-03T22:00:20.000+00:00</generatedAtTime>
@@ -477,12 +477,12 @@
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sampled every 20s (per node)</rdfs:comment>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#gpucore1">
+<owl:NamedIndividual rdf:about="#gpucore2">
   <rdf:type rdf:resource="#GPUCore"/>
-  <observedProperty rdf:resource="#temperature3"/>
+  <observedProperty rdf:resource="#temperature10"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#temperature3">
+<owl:NamedIndividual rdf:about="#temperature10">
   <rdf:type rdf:resource="#Temperature"/>
   <hasTemperatureValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">39</hasTemperatureValue>
   <generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-04-03T22:00:20.000+00:00</generatedAtTime>
@@ -490,12 +490,12 @@
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sampled every 20s (per node)</rdfs:comment>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#gpumemory1">
+<owl:NamedIndividual rdf:about="#gpumemory2">
   <rdf:type rdf:resource="#GPUMemory"/>
-  <observedProperty rdf:resource="#temperature4"/>
+  <observedProperty rdf:resource="#temperature11"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#temperature4">
+<owl:NamedIndividual rdf:about="#temperature11">
   <rdf:type rdf:resource="#Temperature"/>
   <hasTemperatureValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">33</hasTemperatureValue>
   <generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-04-01T12:50:40.000+00:00</generatedAtTime>
@@ -503,12 +503,12 @@
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sampled every 20s (per node)</rdfs:comment>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#graphicscard1">
+<owl:NamedIndividual rdf:about="#graphicscard2">
   <rdf:type rdf:resource="#GraphicsCard"/>
-  <observedProperty rdf:resource="#nvidiaquadrogv100card1"/>
+  <observedProperty rdf:resource="#nvidiaquadrogv100card2"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#nvidiaquadrogv100card1">
+<owl:NamedIndividual rdf:about="#nvidiaquadrogv100card2">
   <rdf:type rdf:resource="#NVIDIAQuadroGV100Card"/>
   <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasValue>
   <generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-04-04T03:50:40.000+00:00</generatedAtTime>
@@ -516,7 +516,7 @@
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sampled every 20s (per node)</rdfs:comment>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#temperature5">
+<owl:NamedIndividual rdf:about="#temperature12">
   <rdf:type rdf:resource="#Temperature"/>
   <hasTemperatureValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</hasTemperatureValue>
   <generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-04-03T22:00:00.000+00:00</generatedAtTime>
@@ -524,17 +524,17 @@
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sampled every 20s (per node)</rdfs:comment>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#cpusocket1">
+<owl:NamedIndividual rdf:about="#cpusocket5">
   <rdf:type rdf:resource="#CPUSocket"/>
-  <featureOfInterest rdf:resource="#inputoutputsubsystem1"/>
+  <featureOfInterest rdf:resource="#inputoutputsubsystem2"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#inputoutputsubsystem1">
+<owl:NamedIndividual rdf:about="#inputoutputsubsystem2">
   <rdf:type rdf:resource="#InputOutputSubsystem"/>
-  <observedProperty rdf:resource="#power2"/>
+  <observedProperty rdf:resource="#power8"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#power2">
+<owl:NamedIndividual rdf:about="#power8">
   <rdf:type rdf:resource="#Power"/>
   <hasPowerValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">63</hasPowerValue>
   <generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-04-04T07:37:00.000+00:00</generatedAtTime>
@@ -542,17 +542,17 @@
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sampled every 20s (per node)</rdfs:comment>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#cpusocket2">
+<owl:NamedIndividual rdf:about="#cpusocket6">
   <rdf:type rdf:resource="#CPUSocket"/>
-  <featureOfInterest rdf:resource="#memorysubsystem1"/>
+  <featureOfInterest rdf:resource="#memorysubsystem2"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#memorysubsystem1">
+<owl:NamedIndividual rdf:about="#memorysubsystem2">
   <rdf:type rdf:resource="#MemorySubsystem"/>
-  <observedProperty rdf:resource="#power3"/>
+  <observedProperty rdf:resource="#power9"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#power3">
+<owl:NamedIndividual rdf:about="#power9">
   <rdf:type rdf:resource="#Power"/>
   <hasPowerValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">18</hasPowerValue>
   <generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-04-03T22:00:20.000+00:00</generatedAtTime>
@@ -560,12 +560,12 @@
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sampled every 20s (per node)</rdfs:comment>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#cpusocket3">
+<owl:NamedIndividual rdf:about="#cpusocket7">
   <rdf:type rdf:resource="#CPUSocket"/>
-  <observedProperty rdf:resource="#power4"/>
+  <observedProperty rdf:resource="#power10"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#power4">
+<owl:NamedIndividual rdf:about="#power10">
   <rdf:type rdf:resource="#Power"/>
   <hasPowerValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</hasPowerValue>
   <generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-04-04T03:09:40.000+00:00</generatedAtTime>
@@ -573,17 +573,17 @@
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sampled every 20s (per node)</rdfs:comment>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#cpusocket4">
+<owl:NamedIndividual rdf:about="#cpusocket8">
   <rdf:type rdf:resource="#CPUSocket"/>
-  <featureOfInterest rdf:resource="#voltageregulator1"/>
+  <featureOfInterest rdf:resource="#voltageregulator2"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#voltageregulator1">
+<owl:NamedIndividual rdf:about="#voltageregulator2">
   <rdf:type rdf:resource="#VoltageRegulator"/>
-  <observedProperty rdf:resource="#temperature6"/>
+  <observedProperty rdf:resource="#temperature13"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#temperature6">
+<owl:NamedIndividual rdf:about="#temperature13">
   <rdf:type rdf:resource="#Temperature"/>
   <hasTemperatureValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</hasTemperatureValue>
   <generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-04-03T22:00:20.000+00:00</generatedAtTime>
@@ -591,12 +591,12 @@
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sampled every 20s (per node)</rdfs:comment>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#pciexpressslot1">
+<owl:NamedIndividual rdf:about="#pciexpressslot2">
   <rdf:type rdf:resource="#PCIExpressSlot"/>
-  <observedProperty rdf:resource="#temperature7"/>
+  <observedProperty rdf:resource="#temperature14"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#temperature7">
+<owl:NamedIndividual rdf:about="#temperature14">
   <rdf:type rdf:resource="#Temperature"/>
   <hasTemperatureValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">35.70000076293945</hasTemperatureValue>
   <generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-04-01T07:20:00.000+00:00</generatedAtTime>
@@ -604,7 +604,7 @@
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sampled every 20s (per node)</rdfs:comment>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#power5">
+<owl:NamedIndividual rdf:about="#power11">
   <rdf:type rdf:resource="#Power"/>
   <hasPowerValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">870</hasPowerValue>
   <generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-04-04T14:11:20.000+00:00</generatedAtTime>
@@ -612,7 +612,7 @@
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sampled every 20s (per node)</rdfs:comment>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#voltage1">
+<owl:NamedIndividual rdf:about="#voltage3">
   <rdf:type rdf:resource="#Voltage"/>
   <hasVoltageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">230</hasVoltageValue>
   <generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-04-03T20:48:00.000+00:00</generatedAtTime>
@@ -620,16 +620,16 @@
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sampled every 20s (per node)</rdfs:comment>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#current1">
+<owl:NamedIndividual rdf:about="#current2">
   <rdf:type rdf:resource="#Current"/>
   <hasCurrentValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</hasCurrentValue>
-  <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">440</hasValue>
   <generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-04-04T10:31:00.000+00:00</generatedAtTime>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Measured in Amperes, and has integer values</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sampled every 20s (per node)</rdfs:comment>
+  <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">440</hasValue>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#voltage2">
+<owl:NamedIndividual rdf:about="#voltage4">
   <rdf:type rdf:resource="#Voltage"/>
   <hasVoltageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">12.399999618530273</hasVoltageValue>
   <generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-04-03T20:58:00.000+00:00</generatedAtTime>
@@ -637,7 +637,7 @@
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sampled every 20s (per node)</rdfs:comment>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#power6">
+<owl:NamedIndividual rdf:about="#power12">
   <rdf:type rdf:resource="#Power"/>
   <hasPowerValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">440</hasPowerValue>
   <generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-04-01T07:20:00.000+00:00</generatedAtTime>
