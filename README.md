@@ -127,6 +127,17 @@ This project aims to model an ontology for HPC computing environment based on so
 | 14 	| researvation 	       |                                          	|           	|
 | 15 	| partprepaid  	       |                                          	|           	|
 
+
+### Sample visualisations of modelled ontology (visualised in Protégé Desktop)
+
+- The OWLViz visualisation of CINECA's Marconi 100 HPC cluster modelled ontology is shown below:
+
+![CINECA's Marconi 100 cluster ontology OWLViz](images/cineca.jpg)
+
+- The OntoGraf visualisation of SURF's LISA HPC cluster modelled ontology is shown below:
+
+![SURF's LISA cluster ontology OntoGraf](images/surf_graph.jpg)
+
 ### References
 <a id="1">[1]</a>
 Chunhua Liao, Pei-Hung Lin, Gaurav Verma, Tristan Vanderbruggen, Murali Emani, Zifan Nan, Xipeng Shen, HPC Ontology: Towards a Unified Ontology for Managing Training Datasets and AI Models for High-Performance Computing, 2021 IEEE/ACM Workshop on Machine Learning in High Performance Computing Environments (MLHPC) (LLNL-CONF-826494)
